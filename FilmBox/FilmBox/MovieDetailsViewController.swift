@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MovieDetailsViewController: UIViewController, UINavigationControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +20,7 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
     @IBAction func updateLastSeenDate(_ sender: Any) {
         let popOverDP = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "dataPickerPopUp") as! PopUpViewController
         self.addChildViewController(popOverDP)
@@ -28,12 +29,8 @@ class ViewController: UIViewController {
         popOverDP.didMove(toParentViewController: self)
     }
     
-    @IBAction func showPopUpDP(_ sender: Any) {
-        let popOverDP = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "dataPickerPopUp") as! PopUpViewController
-        self.addChildViewController(popOverDP)
-        popOverDP.view.frame = self.view.frame
-        self.view.addSubview(popOverDP.view)
-        popOverDP.didMove(toParentViewController: self)
+    func navigationControllerSupportedInterfaceOrientations(_ navigationController: UINavigationController) -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
     }
 }
 

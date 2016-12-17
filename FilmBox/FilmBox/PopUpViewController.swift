@@ -22,8 +22,7 @@ class PopUpViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    @IBAction func saveAndClose(_ sender: Any) {
+    @IBAction func saveDateAndClose(_ sender: Any) {
         self.view.removeFromSuperview()
     }
     
