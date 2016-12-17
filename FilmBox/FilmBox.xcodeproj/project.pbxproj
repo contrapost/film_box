@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B503A1C51E05B2BA008A7EEA /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B503A1C41E05B2BA008A7EEA /* MainTableViewController.swift */; };
 		B51B4D821E0554F5003E5DC0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51B4D811E0554F5003E5DC0 /* AppDelegate.swift */; };
 		B51B4D841E0554F5003E5DC0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51B4D831E0554F5003E5DC0 /* ViewController.swift */; };
 		B51B4D871E0554F5003E5DC0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B51B4D851E0554F5003E5DC0 /* Main.storyboard */; };
@@ -14,6 +15,7 @@
 		B51B4D8C1E0554F5003E5DC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B51B4D8B1E0554F5003E5DC0 /* Assets.xcassets */; };
 		B51B4D8F1E0554F5003E5DC0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B51B4D8D1E0554F5003E5DC0 /* LaunchScreen.storyboard */; };
 		B51B4D9A1E0554F5003E5DC0 /* FilmBoxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51B4D991E0554F5003E5DC0 /* FilmBoxTests.swift */; };
+		B51B4DAC1E05AD92003E5DC0 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51B4DAB1E05AD92003E5DC0 /* PopUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B503A1C41E05B2BA008A7EEA /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		B51B4D7E1E0554F5003E5DC0 /* FilmBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FilmBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B51B4D811E0554F5003E5DC0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B51B4D831E0554F5003E5DC0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -38,6 +41,7 @@
 		B51B4D951E0554F5003E5DC0 /* FilmBoxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FilmBoxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B51B4D991E0554F5003E5DC0 /* FilmBoxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmBoxTests.swift; sourceTree = "<group>"; };
 		B51B4D9B1E0554F5003E5DC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B51B4DAB1E05AD92003E5DC0 /* PopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,8 @@
 				B51B4D8D1E0554F5003E5DC0 /* LaunchScreen.storyboard */,
 				B51B4D901E0554F5003E5DC0 /* Info.plist */,
 				B51B4D881E0554F5003E5DC0 /* FilmBox.xcdatamodeld */,
+				B51B4DAB1E05AD92003E5DC0 /* PopUpViewController.swift */,
+				B503A1C41E05B2BA008A7EEA /* MainTableViewController.swift */,
 			);
 			path = FilmBox;
 			sourceTree = "<group>";
@@ -207,6 +213,8 @@
 				B51B4D841E0554F5003E5DC0 /* ViewController.swift in Sources */,
 				B51B4D8A1E0554F5003E5DC0 /* FilmBox.xcdatamodeld in Sources */,
 				B51B4D821E0554F5003E5DC0 /* AppDelegate.swift in Sources */,
+				B503A1C51E05B2BA008A7EEA /* MainTableViewController.swift in Sources */,
+				B51B4DAC1E05AD92003E5DC0 /* PopUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,6 +424,7 @@
 				B51B4DA01E0554F5003E5DC0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B51B4DA11E0554F5003E5DC0 /* Build configuration list for PBXNativeTarget "FilmBoxTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +433,7 @@
 				B51B4DA31E0554F5003E5DC0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
