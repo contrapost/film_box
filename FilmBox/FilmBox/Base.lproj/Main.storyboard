@@ -39,14 +39,6 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wHQ-kC-Hzl">
                                 <rect key="frame" x="0.0" y="103" width="375" height="508"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="m35-XU-1S6">
-                                    <rect key="frame" x="0.0" y="72" width="375" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" title="Button"/>
-                                    <connections>
-                                        <segue destination="wXU-2o-ddj" kind="show" action="showDetailViewController:sender:" id="aHZ-Th-LoC"/>
-                                    </connections>
-                                </button>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="favoriteFilmCell" id="xzp-KR-cL6">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
@@ -56,7 +48,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="wXU-2o-ddj" kind="show" action="showDetailViewController:sender:" id="go3-H3-vWf"/>
+                                            <segue destination="wXU-2o-ddj" kind="show" id="zrp-HI-48l"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -79,7 +71,7 @@
                     <navigationItem key="navigationItem" title="FILM BOX" id="9OJ-aE-AL8">
                         <barButtonItem key="rightBarButtonItem" id="EBc-cA-Fe6">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fAW-hU-wlT">
-                                <rect key="frame" x="564" y="7" width="83" height="30"/>
+                                <rect key="frame" x="276" y="7" width="83" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="add film"/>
                                 <connections>
@@ -93,7 +85,7 @@
             </objects>
             <point key="canvasLocation" x="696.79999999999995" y="26.53673163418291"/>
         </scene>
-        <!--Something-->
+        <!--Title-->
         <scene sceneID="kEQ-rI-kET">
             <objects>
                 <viewController id="wXU-2o-ddj" customClass="MovieDetailsViewController" customModule="FilmBox" customModuleProvider="target" sceneMemberID="viewController">
@@ -105,15 +97,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oed-kN-TTm">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="Title" id="2qr-Gq-FPX"/>
-                                </items>
-                            </navigationBar>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="KL0-0R-9LF">
-                                <rect key="frame" x="18" y="161" width="74" height="119"/>
+                                <rect key="frame" x="18" y="161" width="74" height="118.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZDp-97-dVU">
                                         <rect key="frame" x="0.0" y="0.0" width="33.5" height="18"/>
@@ -158,7 +143,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="752" text="Last seen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CE3-dy-jz0">
-                                        <rect key="frame" x="0.0" y="98.5" width="74" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="98.5" width="74" height="20"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -169,7 +154,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="SN0-I6-qLT">
-                                <rect key="frame" x="118" y="156" width="239" height="121"/>
+                                <rect key="frame" x="118" y="156" width="239" height="120.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fmC-qp-dD2">
                                         <rect key="frame" x="0.0" y="0.0" width="239" height="20.5"/>
@@ -214,7 +199,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XXQ-nO-ASu">
-                                        <rect key="frame" x="0.0" y="100.5" width="239" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="100.5" width="239" height="20"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -225,7 +210,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cPX-fd-yRZ">
-                                <rect key="frame" x="123" y="299" width="126" height="30"/>
+                                <rect key="frame" x="123" y="298.5" width="126" height="30"/>
                                 <state key="normal" title="add last seen date"/>
                                 <connections>
                                     <action selector="updateLastSeenDate:" destination="wXU-2o-ddj" eventType="touchUpInside" id="GSJ-2v-XiX"/>
@@ -243,7 +228,11 @@
                             <constraint firstItem="SN0-I6-qLT" firstAttribute="leading" secondItem="HHQ-Ut-cUZ" secondAttribute="leading" constant="118" id="xl6-ry-Wp3"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Something" id="Oji-5H-7eF"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Title" id="Rtp-QG-Wc2">
+                        <barButtonItem key="rightBarButtonItem" title="remove" id="QTm-n6-tiX"/>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sxx-hL-sMb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -315,46 +304,53 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5dn-tz-Llm">
-                                <rect key="frame" x="16" y="210.5" width="343" height="246"/>
+                                <rect key="frame" x="16" y="209.5" width="343" height="248"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ErQ-sw-ix4">
-                                        <rect key="frame" x="11" y="0.0" width="320" height="246"/>
-                                        <subviews>
-                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="TgI-GO-chw">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
-                                                <date key="date" timeIntervalSinceReferenceDate="503695177.13253099">
-                                                    <!--2016-12-17 19:19:37 +0000-->
-                                                </date>
-                                            </datePicker>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pbC-VB-eB3">
-                                                <rect key="frame" x="144" y="216" width="32" height="30"/>
-                                                <state key="normal" title="save"/>
-                                                <connections>
-                                                    <action selector="saveDateAndClose:" destination="d8f-BF-EFl" eventType="touchUpInside" id="fiR-dh-Qts"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pbC-VB-eB3">
+                                        <rect key="frame" x="58" y="218" width="45" height="30"/>
+                                        <state key="normal" title="cansel"/>
+                                        <connections>
+                                            <action selector="saveDateAndClose:" destination="d8f-BF-EFl" eventType="touchUpInside" id="fiR-dh-Qts"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BYy-rc-ebW">
+                                        <rect key="frame" x="256" y="218" width="32" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="lK7-7I-tyO"/>
+                                        </constraints>
+                                        <state key="normal" title="save"/>
+                                    </button>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="TgI-GO-chw">
+                                        <rect key="frame" x="15" y="8" width="320" height="216"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="503695177.13253099">
+                                            <!--2016-12-17 19:19:37 +0000-->
+                                        </date>
+                                    </datePicker>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="ErQ-sw-ix4" secondAttribute="bottom" id="HKf-Yl-rLa"/>
-                                    <constraint firstItem="ErQ-sw-ix4" firstAttribute="centerX" secondItem="5dn-tz-Llm" secondAttribute="centerX" id="Hhs-6j-y1A"/>
-                                    <constraint firstItem="ErQ-sw-ix4" firstAttribute="leading" secondItem="5dn-tz-Llm" secondAttribute="leading" constant="11" id="NAQ-md-EF0"/>
-                                    <constraint firstItem="ErQ-sw-ix4" firstAttribute="top" secondItem="5dn-tz-Llm" secondAttribute="top" id="cA7-8D-zXQ"/>
+                                    <constraint firstItem="pbC-VB-eB3" firstAttribute="top" secondItem="TgI-GO-chw" secondAttribute="bottom" constant="-6" id="1d0-Fz-GZm"/>
+                                    <constraint firstAttribute="bottom" secondItem="BYy-rc-ebW" secondAttribute="bottom" id="2SV-En-jOZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="BYy-rc-ebW" secondAttribute="trailing" constant="55" id="2ge-oO-6Ex"/>
+                                    <constraint firstAttribute="height" constant="248" id="9Hn-9v-5Ye"/>
+                                    <constraint firstItem="TgI-GO-chw" firstAttribute="centerY" secondItem="5dn-tz-Llm" secondAttribute="centerY" constant="-8" id="AmJ-ON-gIX"/>
+                                    <constraint firstItem="BYy-rc-ebW" firstAttribute="top" secondItem="TgI-GO-chw" secondAttribute="bottom" constant="-6" id="Lhc-eO-wtK"/>
+                                    <constraint firstItem="TgI-GO-chw" firstAttribute="centerX" secondItem="5dn-tz-Llm" secondAttribute="centerX" constant="3.5" id="XP2-Mx-SBf"/>
+                                    <constraint firstAttribute="width" constant="343" id="eB4-6w-FJM"/>
+                                    <constraint firstItem="BYy-rc-ebW" firstAttribute="leading" secondItem="pbC-VB-eB3" secondAttribute="trailing" constant="153" id="yma-18-Kos"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="5dn-tz-Llm" firstAttribute="centerY" secondItem="zf1-Vg-dh1" secondAttribute="centerY" id="TlO-51-foP"/>
-                            <constraint firstItem="5dn-tz-Llm" firstAttribute="centerX" secondItem="zf1-Vg-dh1" secondAttribute="centerX" id="ve8-PN-obU"/>
+                            <constraint firstItem="5dn-tz-Llm" firstAttribute="centerY" secondItem="zf1-Vg-dh1" secondAttribute="centerY" id="bYD-mJ-FsP"/>
+                            <constraint firstItem="5dn-tz-Llm" firstAttribute="centerX" secondItem="zf1-Vg-dh1" secondAttribute="centerX" id="uOM-f7-TeH"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OiK-Lo-xEt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2119" y="420"/>
+            <point key="canvasLocation" x="2117.5999999999999" y="419.64017991004499"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6rX-ka-GLZ">
@@ -375,7 +371,4 @@
             <point key="canvasLocation" x="-242.40000000000001" y="26.53673163418291"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="go3-H3-vWf"/>
-    </inferredMetricsTieBreakers>
 </document>
