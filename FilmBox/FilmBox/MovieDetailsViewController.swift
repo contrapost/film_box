@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MovieDetailsViewController: UIViewController, UINavigationControllerDelegate {
+class MovieDetailsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,10 +27,6 @@ class MovieDetailsViewController: UIViewController, UINavigationControllerDelega
         popOverDP.view.frame = self.view.frame
         self.view.addSubview(popOverDP.view)
         popOverDP.didMove(toParentViewController: self)
-    }
-    
-    func navigationControllerSupportedInterfaceOrientations(_ navigationController: UINavigationController) -> UIInterfaceOrientationMask {
-        return UIInterfaceOrientationMask.portrait
     }
 }
 
