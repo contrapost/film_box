@@ -9,10 +9,24 @@
 import UIKit
 import Alamofire
 
+class foundFilm {
+    let title : String
+    let year : String
+    let imdbID : String
+    var saved = false
+    
+    init(title: String, year: String, imdbID: String) {
+        self.title = title
+        self.year = year
+        self.imdbID = imdbID
+    }
+}
 
 class FilmSearchTableViewController: UITableViewController {
     
-    var searchUrl = "http://www.omdbapi.com/?s=Bourne&y=&plot=short&r=json"
+    var films = [foundFilm]()
+    
+    var searchUrl = "http://www.omdbapi.com/?s=Interstellar&y=&plot=short&r=json"
     
     typealias JSONtype = [String : AnyObject]
 
@@ -37,8 +51,21 @@ class FilmSearchTableViewController: UITableViewController {
     
     func parseData(JSONData : Data) {
         do {
-            var readableJSON = try JSONSerialization.jsonObject(with: JSONData, options: .mutableContainers) as? JSONtype
-            print(readableJSON)
+            var readableJSON = try JSONSerialization.jsonObject(with: JSONData, options: .mutableContainers) as! JSONtype
+            if let items = readableJSON["Search"] {
+                for i in 0..<items.count {
+                    let film = items[i] as! JSONtype
+                    
+                    print(film["Title"]!)
+                    print(film["Year"]!)
+                    print(film["imdbID"]!)
+                    
+                    films.append(foundFilm.init(title: film["Title"] as! String!, year: film["Year"] as! String!, imdbID: film["imdbID"] as! String!))
+                    
+                    self.tableView.reloadData()
+                }
+            }
+     //       print(readableJSON)
         } catch {
             print(error)
         }
@@ -54,19 +81,37 @@ class FilmSearchTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return films.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: "filmSearchCell")
+        
+        let titleLable = cell?.viewWithTag(1) as! UILabel
+        let yearLable = cell?.viewWithTag(2) as! UILabel
+        
+        titleLable.text = films[indexPath.row].title
+        yearLable.text = films[indexPath.row].year
 
-        return cell
+        return cell!
     }
-    */
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let cell = tableView.cellForRow(at: indexPath)
+        
+        let foundFilm = films[indexPath.row]
+        
+        foundFilm.saved = !foundFilm.saved
+        
+        if foundFilm.saved {
+            cell?.accessoryType = UITableViewCellAccessoryType.checkmark
+        } else {
+            cell?.accessoryType = UITableViewCellAccessoryType.none
+        }
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

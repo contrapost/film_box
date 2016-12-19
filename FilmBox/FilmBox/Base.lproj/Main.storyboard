@@ -25,6 +25,30 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="C5n-Cp-EdF" id="KQl-GS-Aqg">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EEv-zo-krJ">
+                                            <rect key="frame" x="8" y="8" width="306" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vue-jm-qWi">
+                                            <rect key="frame" x="322" y="8" width="45" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="45" id="9LK-M6-BBA"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Vue-jm-qWi" firstAttribute="top" secondItem="KQl-GS-Aqg" secondAttribute="topMargin" id="3Kp-EH-ZJg"/>
+                                        <constraint firstItem="Vue-jm-qWi" firstAttribute="baseline" secondItem="EEv-zo-krJ" secondAttribute="baseline" id="9Fb-ts-LuU"/>
+                                        <constraint firstItem="Vue-jm-qWi" firstAttribute="leading" secondItem="EEv-zo-krJ" secondAttribute="trailing" constant="8" id="TaG-oz-EGY"/>
+                                        <constraint firstItem="Vue-jm-qWi" firstAttribute="trailing" secondItem="KQl-GS-Aqg" secondAttribute="trailingMargin" id="UZB-5W-amM"/>
+                                        <constraint firstAttribute="leadingMargin" secondItem="EEv-zo-krJ" secondAttribute="leading" id="ptW-kW-n21"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <accessibility key="accessibilityConfiguration" identifier="filmSearchCell"/>
                             </tableViewCell>
@@ -38,7 +62,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eY4-eU-PE2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1478" y="-362"/>
+            <point key="canvasLocation" x="1477.5999999999999" y="-362.06896551724139"/>
         </scene>
         <!--FILM BOX-->
         <scene sceneID="iLn-DT-vVZ">
