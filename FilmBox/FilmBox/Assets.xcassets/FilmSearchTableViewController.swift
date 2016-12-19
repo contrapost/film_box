@@ -22,18 +22,30 @@ class foundFilm {
     }
 }
 
-class FilmSearchTableViewController: UITableViewController {
+class FilmSearchTableViewController: UITableViewController, UISearchBarDelegate {
+    
+    @IBOutlet weak var searchBar: UISearchBar!
     
     var films = [foundFilm]()
     
-    var searchUrl = "http://www.omdbapi.com/?s=Interstellar&y=&plot=short&r=json"
+    var searchUrl = String()
     
     typealias JSONtype = [String : AnyObject]
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        let searchString = searchBar.text
+        let titleToSearch = searchString?.replacingOccurrences(of: " ", with: "+")
+        
+        searchUrl = "http://www.omdbapi.com/?s=\(titleToSearch!)&y=&plot=short&r=json"
+        
+        getSearchData(url: searchUrl)
+        
+        self.view.endEditing(true)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        getSearchData(url: searchUrl)
     }
 
     override func didReceiveMemoryWarning() {
@@ -65,7 +77,6 @@ class FilmSearchTableViewController: UITableViewController {
                     self.tableView.reloadData()
                 }
             }
-     //       print(readableJSON)
         } catch {
             print(error)
         }
