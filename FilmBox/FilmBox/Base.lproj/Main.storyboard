@@ -10,6 +10,36 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Film search-->
+        <scene sceneID="1nn-gU-V6V">
+            <objects>
+                <tableViewController id="CbE-Ay-Hhp" customClass="FilmSearchTableViewController" customModule="FilmBox" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="JkQ-nE-Ya5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="filmSearchCell" id="C5n-Cp-EdF">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="C5n-Cp-EdF" id="KQl-GS-Aqg">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <accessibility key="accessibilityConfiguration" identifier="filmSearchCell"/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="CbE-Ay-Hhp" id="brn-ft-3DK"/>
+                            <outlet property="delegate" destination="CbE-Ay-Hhp" id="t2j-4W-bty"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Film search" id="FUk-rt-NP8"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eY4-eU-PE2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1478" y="-362"/>
+        </scene>
         <!--FILM BOX-->
         <scene sceneID="iLn-DT-vVZ">
             <objects>
@@ -69,15 +99,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="FILM BOX" id="9OJ-aE-AL8">
-                        <barButtonItem key="rightBarButtonItem" id="EBc-cA-Fe6">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fAW-hU-wlT">
-                                <rect key="frame" x="276" y="7" width="83" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="add film"/>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="teJ-d1-Axg"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" title="add film" id="suE-3u-Wm4">
+                            <connections>
+                                <segue destination="CbE-Ay-Hhp" kind="show" id="3ia-qL-HxZ"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
@@ -237,59 +262,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sxx-hL-sMb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1478.4107946026988" y="418.39999999999998"/>
-        </scene>
-        <!--Film Search-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="FilmBox" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="8AN-V6-dbT">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <subviews>
-                                    <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="1Wt-mw-BgT">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="MgA-C5-PGt"/>
-                                        </constraints>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </searchBar>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="13" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Xrz-dD-Zjf">
-                                        <rect key="frame" x="0.0" y="50" width="375" height="553"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchResultCell" rowHeight="13" id="QI6-Zz-qxa">
-                                                <rect key="frame" x="0.0" y="28" width="375" height="13"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QI6-Zz-qxa" id="ytq-N5-jT2">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="12"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                </tableViewCellContentView>
-                                            </tableViewCell>
-                                        </prototypes>
-                                    </tableView>
-                                </subviews>
-                            </stackView>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="8AN-V6-dbT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="7sK-Th-f2c"/>
-                            <constraint firstItem="8AN-V6-dbT" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="aki-T5-nEE"/>
-                            <constraint firstAttribute="trailing" secondItem="8AN-V6-dbT" secondAttribute="trailing" id="dOe-do-CCa"/>
-                            <constraint firstItem="8AN-V6-dbT" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="qdA-V0-igG"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Film Search" id="A4p-7b-iG0"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1480.2098950524739" y="-349.60000000000002"/>
         </scene>
         <!--Pop Up View Controller-->
         <scene sceneID="hO4-Q9-3Qp">
