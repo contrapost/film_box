@@ -118,10 +118,35 @@ class FilmSearchTableViewController: UITableViewController, UISearchBarDelegate 
         foundFilm.saved = !foundFilm.saved
         
         if foundFilm.saved {
+            saveFilmToDB(imdbID: foundFilm.imdbID)
             cell?.accessoryType = UITableViewCellAccessoryType.checkmark
         } else {
+            deleteFilmFromDB(imdbID: foundFilm.imdbID)
             cell?.accessoryType = UITableViewCellAccessoryType.none
         }
+    }
+    
+    func saveFilmToDB(imdbID: String) {
+        let searchFilmUrl = "http://www.omdbapi.com/?i=\(imdbID)&plot=short&r=json"
+        
+        Alamofire.request(searchFilmUrl).responseJSON(completionHandler: { response in
+            
+            do {
+                let readableJSON = try JSONSerialization.jsonObject(with: response.data!, options: .mutableContainers) as! JSONtype
+                // print(readableJSON)
+                
+                let filmToSave = Film(title: readableJSON["Title"] as! String, year: readableJSON["Year"] as! String, runtime: readableJSON["Runtime"] as! String, genre: readableJSON["Genre"] as! String, imdbID: readableJSON["imdbID"] as! String, imdbRating: readableJSON["imdbRating"] as! String)
+                
+                print(filmToSave.title)
+            } catch {
+                print(error)
+            }
+            
+        })
+    }
+    
+    func deleteFilmFromDB(imdbID: String) {
+        print("Film with \(imdbID) has been deleted")
     }
     /*
     // Override to support conditional editing of the table view.
