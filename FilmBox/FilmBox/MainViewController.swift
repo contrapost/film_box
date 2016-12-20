@@ -34,9 +34,12 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             for result in searchRes as [Film] {
                 switch selectedValue {
                 case "Recommended":
-                    if Double(result.imdbRating!)! > 7.0 {
-                        filmsToShow.append(result)
+                    if let actualSeenDate = result.lastSeen {
+                        if daysBetween(start: actualSeenDate as Date, end: NSDate() as Date) >= 1095 && Double(result.imdbRating!)! > 7.0 {
+                            filmsToShow.append(result)
+                        }
                     }
+                    
                 default:
                     filmsToShow.append(result)
                 }
@@ -116,5 +119,8 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             viewController.imdbID = filmsToShow[indexPath!].imdbID!
         }
     }
-
+    
+    public func daysBetween(start: Date, end: Date) -> Int {
+        return Calendar.current.dateComponents([.day], from: start, to: end).day!
+    }
 }
