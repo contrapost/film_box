@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 import Alamofire
 
 class foundFilm {
@@ -68,9 +69,9 @@ class FilmSearchTableViewController: UITableViewController, UISearchBarDelegate 
                 for i in 0..<items.count {
                     let film = items[i] as! JSONtype
                     
-                    print(film["Title"]!)
+             /*       print(film["Title"]!)
                     print(film["Year"]!)
-                    print(film["imdbID"]!)
+                    print(film["imdbID"]!) */
                     
                     films.append(foundFilm.init(title: film["Title"] as! String!, year: film["Year"] as! String!, imdbID: film["imdbID"] as! String!))
                     
@@ -104,6 +105,19 @@ class FilmSearchTableViewController: UITableViewController, UISearchBarDelegate 
         
         titleLable.text = films[indexPath.row].title
         yearLable.text = films[indexPath.row].year
+        
+        let fetchRequest:NSFetchRequest<Film> = Film.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "imdbID = %@", films[indexPath.row].imdbID)
+        
+        do {
+            let fetchedFilms = try DatabaseController.getContext().fetch(fetchRequest)
+            if fetchedFilms.count != 0 {
+                films[indexPath.row].saved = true
+                cell?.accessoryType = UITableViewCellAccessoryType.checkmark
+            }
+        } catch {
+            print(error)
+        }
 
         return cell!
     }
@@ -135,9 +149,43 @@ class FilmSearchTableViewController: UITableViewController, UISearchBarDelegate 
                 let readableJSON = try JSONSerialization.jsonObject(with: response.data!, options: .mutableContainers) as! JSONtype
                 // print(readableJSON)
                 
-                let filmToSave = Film(title: readableJSON["Title"] as! String, year: readableJSON["Year"] as! String, runtime: readableJSON["Runtime"] as! String, genre: readableJSON["Genre"] as! String, imdbID: readableJSON["imdbID"] as! String, imdbRating: readableJSON["imdbRating"] as! String)
+                let fetchRequest:NSFetchRequest<Film> = Film.fetchRequest()
+                fetchRequest.predicate = NSPredicate(format: "imdbID = %@", readableJSON["imdbID"] as! String)
+                do {
+                    let searchRes = try DatabaseController.getContext().fetch(fetchRequest)
+                    if searchRes.count == 0 {
+                        
+                        let filmToSave: Film = NSEntityDescription.insertNewObject(forEntityName: "Film", into: DatabaseController.getContext()) as! Film
+                        
+                        filmToSave.title = readableJSON["Title"] as! String?
+                        filmToSave.year = readableJSON["Year"] as! String?
+                        filmToSave.runtime = readableJSON["Runtime"] as! String?
+                        filmToSave.genre = readableJSON["Genre"] as! String?
+                        filmToSave.imdbID = readableJSON["imdbID"] as! String?
+                        filmToSave.imdbRating = readableJSON["imdbRating"] as! String?
+                        filmToSave.lastSeen = nil
+                        
+                        DatabaseController.saveContext()
+                        
+                    }
+                    
+                } catch {
+                    print(error)
+                }
                 
-                print(filmToSave.title)
+                let fetchRequest2:NSFetchRequest<Film> = Film.fetchRequest()
+                do {
+                    let searchRes = try DatabaseController.getContext().fetch(fetchRequest2)
+                    
+                    print("Number of results\(searchRes.count)")
+                    
+                    for result in searchRes as [Film] {
+                        print("\(result.title!) \(result.year!)")
+                    }
+                } catch {
+                    print(error)
+                }
+                
             } catch {
                 print(error)
             }
@@ -146,51 +194,17 @@ class FilmSearchTableViewController: UITableViewController, UISearchBarDelegate 
     }
     
     func deleteFilmFromDB(imdbID: String) {
+        let fetchRequest:NSFetchRequest<Film> = Film.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "imdbID = %@", imdbID)
+        
+        do {
+            let fetchedFilms = try DatabaseController.getContext().fetch(fetchRequest)
+            DatabaseController.getContext().delete(fetchedFilms[0])
+        } catch {
+            print(error)
+        }
+        
         print("Film with \(imdbID) has been deleted")
     }
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
