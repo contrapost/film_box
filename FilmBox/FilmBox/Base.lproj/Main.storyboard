@@ -31,7 +31,7 @@
                                 <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="C5n-Cp-EdF" id="KQl-GS-Aqg">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EEv-zo-krJ">
@@ -78,7 +78,7 @@
         <!--FILM BOX-->
         <scene sceneID="iLn-DT-vVZ">
             <objects>
-                <viewController id="mbH-fi-IoM" customClass="ViewController" customModule="FilmBox" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="mbH-fi-IoM" customClass="MainViewController" customModule="FilmBox" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5bm-qK-zon"/>
                         <viewControllerLayoutGuide type="bottom" id="rs7-5D-Fbn"/>
@@ -100,6 +100,9 @@
                                     <segment title="All"/>
                                     <segment title="Recommended"/>
                                 </segments>
+                                <connections>
+                                    <action selector="segmentedBarChanged:" destination="mbH-fi-IoM" eventType="valueChanged" id="Y6G-Yx-PRR"/>
+                                </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wHQ-kC-Hzl">
                                 <rect key="frame" x="0.0" y="103" width="375" height="508"/>
@@ -109,7 +112,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xzp-KR-cL6" id="kdu-ya-Qlp">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -117,6 +120,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="mbH-fi-IoM" id="jre-8F-GML"/>
+                                    <outlet property="delegate" destination="mbH-fi-IoM" id="pC5-gb-OJo"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -140,6 +147,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="wHQ-kC-Hzl" id="Uao-oR-Npj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mt8-gK-ddh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
