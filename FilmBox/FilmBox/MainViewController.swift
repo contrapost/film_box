@@ -90,8 +90,17 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "favoriteFilmCell", for: indexPath)
         
+        let titleLable = cell.viewWithTag(1) as! UILabel
+        let seenLable = cell.viewWithTag(2) as! UILabel
+        
         let film = filmsToShow[indexPath.row]
-        cell.textLabel?.text = film.title
+        titleLable.text = film.title
+        
+        if film.lastSeen != nil {
+            seenLable.text = "👁"
+        } else {
+            seenLable.text = ""
+        }
         
         return cell
     }

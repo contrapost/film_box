@@ -135,6 +135,29 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xzp-KR-cL6" id="kdu-ya-Qlp">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4CG-TC-jEg">
+                                                    <rect key="frame" x="8" y="11" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G9X-Pm-iNP">
+                                                    <rect key="frame" x="318" y="11" width="42" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="42" id="vLm-dx-hhF"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="4CG-TC-jEg" firstAttribute="centerY" secondItem="kdu-ya-Qlp" secondAttribute="centerY" id="LHg-oW-EgL"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="4CG-TC-jEg" secondAttribute="leading" id="g5V-3O-bYd"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="G9X-Pm-iNP" secondAttribute="trailing" constant="7" id="nSn-5B-dGJ"/>
+                                                <constraint firstItem="4CG-TC-jEg" firstAttribute="baseline" secondItem="G9X-Pm-iNP" secondAttribute="baseline" id="y2z-p9-gMi"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <segue destination="wXU-2o-ddj" kind="show" id="zrp-HI-48l"/>
