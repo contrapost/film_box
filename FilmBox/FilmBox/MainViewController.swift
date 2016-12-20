@@ -14,6 +14,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var savedFilms = [Film]()
     var filmsToShow = [Film]()
     
+    @IBOutlet weak var rating: UILabel!
     var selectedValue = String()
 
     @IBOutlet weak var tableView: UITableView!
@@ -22,6 +23,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         super.viewDidLoad()
         
         loadData()
+        
     }
     
     func loadData() {
@@ -44,7 +46,20 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             print(error)
         }
         
+        setRating()
         tableView.reloadData()
+    }
+    
+    func setRating() {
+        if filmsToShow.count == 0 {
+            rating.text = "NA"
+        } else {
+            var ratingSum = 0.0
+            for film in filmsToShow {
+                ratingSum = ratingSum + Double(film.imdbRating!)!
+            }
+            rating.text = String(format:"%.1f", ratingSum/(Double(filmsToShow.count)))
+        }
     }
 
     override func didReceiveMemoryWarning() {
