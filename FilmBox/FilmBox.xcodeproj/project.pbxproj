@@ -21,6 +21,7 @@
 		B51B86E71E0914EE0065C930 /* Film+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51B86E51E0914EE0065C930 /* Film+CoreDataProperties.swift */; };
 		B51B86EA1E0915860065C930 /* DatabaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51B86E91E0915860065C930 /* DatabaseController.swift */; };
 		B57B30551E085AB300754E68 /* FilmSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57B30541E085AB300754E68 /* FilmSearchTableViewController.swift */; };
+		B5DF412C1E099FD7001DB179 /* InfoPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DF412B1E099FD7001DB179 /* InfoPopUpViewController.swift */; };
 		F6AD4485DF05AE5960D8B8E1 /* Pods_FilmBoxTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E813D9E712FF41B8E7C37917 /* Pods_FilmBoxTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +58,7 @@
 		B51B86E51E0914EE0065C930 /* Film+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Film+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B51B86E91E0915860065C930 /* DatabaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseController.swift; sourceTree = "<group>"; };
 		B57B30541E085AB300754E68 /* FilmSearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FilmSearchTableViewController.swift; path = Assets.xcassets/FilmSearchTableViewController.swift; sourceTree = "<group>"; };
+		B5DF412B1E099FD7001DB179 /* InfoPopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoPopUpViewController.swift; sourceTree = "<group>"; };
 		E813D9E712FF41B8E7C37917 /* Pods_FilmBoxTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FilmBoxTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -161,6 +163,7 @@
 				B503A1C41E05B2BA008A7EEA /* MainViewController.swift */,
 				B57B30541E085AB300754E68 /* FilmSearchTableViewController.swift */,
 				B51B86E91E0915860065C930 /* DatabaseController.swift */,
+				B5DF412B1E099FD7001DB179 /* InfoPopUpViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -376,6 +379,7 @@
 				B51B4D821E0554F5003E5DC0 /* AppDelegate.swift in Sources */,
 				B51B86EA1E0915860065C930 /* DatabaseController.swift in Sources */,
 				B503A1C51E05B2BA008A7EEA /* MainViewController.swift in Sources */,
+				B5DF412C1E099FD7001DB179 /* InfoPopUpViewController.swift in Sources */,
 				B51B4DAC1E05AD92003E5DC0 /* PopUpViewController.swift in Sources */,
 				B57B30551E085AB300754E68 /* FilmSearchTableViewController.swift in Sources */,
 			);

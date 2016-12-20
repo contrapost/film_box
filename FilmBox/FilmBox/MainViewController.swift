@@ -24,6 +24,14 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         loadData()
         
+        if filmsToShow.count == 0 {
+            let popOverDP = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "infoPopUpSB") as! InfoPopUpViewController
+            self.addChildViewController(popOverDP)
+            popOverDP.view.frame = self.view.frame
+            self.view.addSubview(popOverDP.view)
+            popOverDP.didMove(toParentViewController: self)
+        }
+        
     }
     
     func loadData() {
@@ -55,7 +63,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func setRating() {
         if filmsToShow.count == 0 {
-            rating.text = "NA"
+            rating.text = "-"
         } else {
             var ratingSum = 0.0
             for film in filmsToShow {
