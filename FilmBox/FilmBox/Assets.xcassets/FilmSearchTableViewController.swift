@@ -200,6 +200,11 @@ class FilmSearchTableViewController: UITableViewController, UISearchBarDelegate 
         do {
             let fetchedFilms = try DatabaseController.getContext().fetch(fetchRequest)
             DatabaseController.getContext().delete(fetchedFilms[0])
+            do {
+                try DatabaseController.getContext().save()
+            } catch {
+                print(error)
+            }
         } catch {
             print(error)
         }
