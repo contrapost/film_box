@@ -160,7 +160,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="wXU-2o-ddj" kind="show" id="zrp-HI-48l"/>
+                                            <segue destination="wXU-2o-ddj" kind="show" identifier="segueToDetails" id="zrp-HI-48l"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -345,9 +345,22 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Title" id="Rtp-QG-Wc2">
-                        <barButtonItem key="rightBarButtonItem" title="remove" id="QTm-n6-tiX"/>
+                        <barButtonItem key="rightBarButtonItem" title="remove" id="QTm-n6-tiX">
+                            <connections>
+                                <action selector="deleteFilm:" destination="wXU-2o-ddj" id="U8f-ew-htg"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="genreLable" destination="Zjj-ws-Xkp" id="dqi-MK-22A"/>
+                        <outlet property="imdbRatingLabel" destination="ZJP-Oz-ngT" id="IP2-Yu-eel"/>
+                        <outlet property="lastSeenLable" destination="XXQ-nO-ASu" id="8Fv-FA-y7I"/>
+                        <outlet property="navBar" destination="Rtp-QG-Wc2" id="drx-5e-hGw"/>
+                        <outlet property="runtimeLabel" destination="4M9-wz-ePS" id="Ltw-Gv-haj"/>
+                        <outlet property="titleLabel" destination="fmC-qp-dD2" id="SuC-9P-pmX"/>
+                        <outlet property="yearLabel" destination="sDQ-wR-xve" id="p2r-e8-SMn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sxx-hL-sMb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
