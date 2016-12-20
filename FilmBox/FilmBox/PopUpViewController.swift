@@ -8,7 +8,16 @@
 
 import UIKit
 
+protocol SavingViewControllerDelegate
+{
+    func saveDate(date : Date)
+}
+
 class PopUpViewController: UIViewController {
+    
+    var delegate : SavingViewControllerDelegate?
+    
+    @IBOutlet weak var datePicker: UIDatePicker!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,11 +31,20 @@ class PopUpViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func saveDateAndClose(_ sender: Any) {
+    @IBAction func cansel(_ sender: UIButton) {
         self.view.removeFromSuperview()
     }
     
     
+    @IBAction func sendDateToDetailsVC(_ sender: UIButton) {
+        print("In send date")
+        if((self.delegate) != nil)
+        {
+            print("in if statement")
+            delegate?.saveDate(date: datePicker.date);
+            self.view.removeFromSuperview()
+        }
+    }
     /*
     // MARK: - Navigation
 

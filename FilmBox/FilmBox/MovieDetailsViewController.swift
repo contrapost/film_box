@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class MovieDetailsViewController: UIViewController {
+class MovieDetailsViewController: UIViewController, SavingViewControllerDelegate {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var yearLabel: UILabel!
@@ -57,6 +57,29 @@ class MovieDetailsViewController: UIViewController {
         }
 
     }
+    
+    func saveDate(date: Date) {
+        let fetchRequest:NSFetchRequest<Film> = Film.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "imdbID = %@", imdbID)
+        
+        do {
+            let fetchedFilms = try DatabaseController.getContext().fetch(fetchRequest)
+            let foundFilm = fetchedFilms[0] as Film
+            
+            foundFilm.lastSeen = date as NSDate?
+            
+            do {
+                try DatabaseController.getContext().save()
+            } catch {
+                print(error)
+            }
+            
+        } catch {
+            print(error)
+        }
+        
+        loadData()
+    }
 
     @IBAction func deleteFilm(_ sender: UIBarButtonItem) {
         let fetchRequest:NSFetchRequest<Film> = Film.fetchRequest()
@@ -90,6 +113,7 @@ class MovieDetailsViewController: UIViewController {
         self.addChildViewController(popOverDP)
         popOverDP.view.frame = self.view.frame
         self.view.addSubview(popOverDP.view)
+        popOverDP.delegate = self
         popOverDP.didMove(toParentViewController: self)
     }
 }
