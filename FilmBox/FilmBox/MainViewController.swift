@@ -51,7 +51,6 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 default:
                     filmsToShow.append(result)
                 }
-                print("\(result.title!) \(result.year!)")
             }
         } catch {
             print(error)
@@ -75,7 +74,6 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func viewWillAppear(_ animated: Bool) {

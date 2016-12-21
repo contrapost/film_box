@@ -10,24 +10,11 @@ import UIKit
 import CoreData
 import Alamofire
 
-class foundFilm {
-    let title : String
-    let year : String
-    let imdbID : String
-    var saved = false
-    
-    init(title: String, year: String, imdbID: String) {
-        self.title = title
-        self.year = year
-        self.imdbID = imdbID
-    }
-}
-
 class FilmSearchTableViewController: UITableViewController, UISearchBarDelegate {
     
     @IBOutlet weak var searchBar: UISearchBar!
     
-    var films = [foundFilm]()
+    var films = [FoundFilm]()
     
     var searchUrl = String()
     
@@ -51,7 +38,6 @@ class FilmSearchTableViewController: UITableViewController, UISearchBarDelegate 
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func getSearchData(url: String) {
@@ -69,11 +55,7 @@ class FilmSearchTableViewController: UITableViewController, UISearchBarDelegate 
                 for i in 0..<items.count {
                     let film = items[i] as! JSONtype
                     
-             /*       print(film["Title"]!)
-                    print(film["Year"]!)
-                    print(film["imdbID"]!) */
-                    
-                    films.append(foundFilm.init(title: film["Title"] as! String!, year: film["Year"] as! String!, imdbID: film["imdbID"] as! String!))
+                    films.append(FoundFilm.init(title: film["Title"] as! String!, year: film["Year"] as! String!, imdbID: film["imdbID"] as! String!))
                     
                     self.tableView.reloadData()
                 }
@@ -87,12 +69,10 @@ class FilmSearchTableViewController: UITableViewController, UISearchBarDelegate 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return films.count
     }
 
@@ -147,7 +127,6 @@ class FilmSearchTableViewController: UITableViewController, UISearchBarDelegate 
             
             do {
                 let readableJSON = try JSONSerialization.jsonObject(with: response.data!, options: .mutableContainers) as! JSONtype
-                // print(readableJSON)
                 
                 let fetchRequest:NSFetchRequest<Film> = Film.fetchRequest()
                 fetchRequest.predicate = NSPredicate(format: "imdbID = %@", readableJSON["imdbID"] as! String)
@@ -169,19 +148,6 @@ class FilmSearchTableViewController: UITableViewController, UISearchBarDelegate 
                         
                     }
                     
-                } catch {
-                    print(error)
-                }
-                
-                let fetchRequest2:NSFetchRequest<Film> = Film.fetchRequest()
-                do {
-                    let searchRes = try DatabaseController.getContext().fetch(fetchRequest2)
-                    
-                    print("Number of results\(searchRes.count)")
-                    
-                    for result in searchRes as [Film] {
-                        print("\(result.title!) \(result.year!)")
-                    }
                 } catch {
                     print(error)
                 }
@@ -209,7 +175,7 @@ class FilmSearchTableViewController: UITableViewController, UISearchBarDelegate 
             print(error)
         }
         
-        print("Film with \(imdbID) has been deleted")
+      //  print("Film with \(imdbID) has been deleted")
     }
 
 }

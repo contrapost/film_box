@@ -26,8 +26,6 @@ class MovieDetailsViewController: UIViewController, SavingViewControllerDelegate
         super.viewDidLoad()
         
         loadData()
-        print(imdbID)
-        // Do any additional setup after loading the view, typically from a nib.
     }
     
     func loadData() {
@@ -104,7 +102,6 @@ class MovieDetailsViewController: UIViewController, SavingViewControllerDelegate
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     
