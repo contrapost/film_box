@@ -22,6 +22,8 @@ class FilmSearchTableViewController: UITableViewController, UISearchBarDelegate 
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
+        films.removeAll()
+        
         let searchString = searchBar.text
         let titleToSearch = searchString?.replacingOccurrences(of: " ", with: "+")
         
